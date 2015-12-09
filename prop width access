@@ -1,0 +1,17 @@
+通过prop源码来看access
+
+1.ele.prop('checked');
+
+jQuery.fn.prop 
+function( name, value ) {
+	return access( this, jQuery.prop, name, value, arguments.length > 1 );
+},
+
+这个方程直接进入到最后，chainable 对应的是arguments>1，即有设置参数值的时候进入，否则进入bulk
+最后返回结果是 fn( elems[ 0 ], key ) 为 jQuery.prop(elems[0], key)
+return chainable ?
+	elems :
+	// Gets
+	bulk ?
+		fn.call( elems ) :
+		len ? fn( elems[ 0 ], key ) : emptyGet;

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" id="test" checked="checked">
+	<script src='./jquery.js'></script>
+	<script>
+		var test = $('#test');
+		$(document).click(function(){
+			return test.prop('checked',false);
+		})
+		
+	</script>
+</body>
+</html>
